@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="header">Web-programozás-1 Előadás Házi feladat</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="crud.html">Táblázat</a></li>
+            <li><a href="html5.html">HTML5 Menu</a></li>
+            <li><a href="chartjstab.html" class="active">Diagramm</a></li>
+        </ul>
+    </nav>
+    <aside>
+            <h1>Diagramm</h1>
+    </aside>
+    <div class="content">
+        <h2>5x5-ös számok táblázata</h2>
+        <p>A számok random generálodnak!</p>
+        <table class="chartjstab" id="data-table">
+            <tbody>
+
+            </tbody>
+        </table>
+        <h2>Kiválasztott sor vonaldiagramon:</h2>
+        <canvas id="lineChart" width="600" height="300"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const table = document.getElementById("data-table").getElementsByTagName("tbody")[0];
+            for (let i = 0; i < 5; i++) {
+                const row = table.insertRow();
+                for (let j = 0; j < 5; j++) {
+                    const cell = row.insertCell();
+                    cell.innerText = Math.floor(Math.random() * 100);
+                }
+                row.addEventListener("click", () => handleRowClick(row));
+            }
+            const ctx = document.getElementById("lineChart").getContext("2d");
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['1.', '2.', '3.', '4.', '5.'],
+                    datasets: [{
+                        label: 'Kiválasztott sor',
+                        data: [],
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.2
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            function handleRowClick(row) {
+                const data = Array.from(row.cells).map(cell => Number(cell.innerText));
+                chart.data.datasets[0].data = data;
+                chart.update();
+            }
+        </script>
+    </div>
+    <footer>Created by Sinkár Dominik(J8IDDT) & Daczi Sándor(M1BTF5)</footer>
+</body>
+</html>

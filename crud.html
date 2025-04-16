@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Táblázat</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <style>
+        .hide { display: none; }
+        .search-box { margin-bottom: 10px; }
+        th { cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="header">Web-programozás-1 Előadás Házi feladat</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="crud.html" class="active">Táblázat</a></li>
+            <li><a href="html5.html">HTML5 Menu</a></li>
+            <li><a href="chartjstab.html">Diagramm</a></li>
+        </ul>
+    </nav>
+    <aside>
+        <h1>CRUD Táblázat</h1>
+        <div class="search-box">
+            <label for="searchbox">Keresés:</label>
+            <input type="text" id="searchbox" onkeyup="search()" placeholder="Keresés...">
+        </div>
+        <p>Rendezéshez nyomjon a rendezni kívánt oszlop nevére!</p>
+    </aside>
+    <div class="content">
+        <div class="employee-form">
+            <form onsubmit="event.preventDefault(); onFormSubmit();">
+                <div>
+                    <label>Vezetéknév*</label>
+                    <label class="validation-error hide" id="vezeteknevValidationError">A mezőt kötelező kitölteni!</label>
+                    <input type="text" id="vezeteknev">
+                </div>
+                <div>
+                    <label>Keresztnév*</label>
+                    <label class="validation-error hide" id="keresztnevValidationError">A mezőt kötelező kitölteni!</label>
+                    <input type="text" id="keresztnev">
+                </div>
+                <div>
+                    <label>Lakhely</label>
+                    <input type="text" id="lakhely">
+                </div>
+                <div>
+                    <label>Megjegyzés</label>
+                    <input type="text" id="megjegyzes">
+                </div>
+                <div class="form-action-buttons">
+                    <input type="submit" value="Mentés">
+                </div>
+            </form>
+        </div>
+        <br/>
+        <div class="employees-table">
+            <table class="list" id="employeeList">
+                <thead class="tablehead">
+                    <tr>
+                        <th onclick="sortTable(0)">Vezetéknév</th>
+                        <th onclick="sortTable(1)">Keresztnév</th>
+                        <th onclick="sortTable(2)">Lakhely</th>
+                        <th onclick="sortTable(3)">Megjegyzés</th>
+                        <th>Művelet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <footer>Created by Sinkár Dominik(J8IDDT) & Daczi Sándor(M1BTF5)</footer>
+</body>
+</html>
