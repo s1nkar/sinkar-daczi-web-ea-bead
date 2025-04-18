@@ -6,8 +6,33 @@
     <script defer src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script defer src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-programozás-1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+	
   </head>
   <body>
+  
+    <header>
+        <h1 class="header">Web-programozás-1 Előadás Házi feladat</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="html5.html">HTML5 Menu</a></li>
+            <li><a href="crud.html">Crud Táblázat</a></li>			
+            <li><a href="chartjstab.html">Diagramm</a></li>
+            <li><a href="ajax.html" >AJAX</a></li>
+			<li><a href="oojs.html" >OOJS</a></li>			
+			<li><a href="react.html" class="active">React</a></li>
+        </ul>
+    </nav>
+  
     <div id="root"></div>
     <script type="text/babel" data-type="module">
 
@@ -21,7 +46,7 @@
             <p>Érték: {count}</p>
             <button onClick={() => setCount(count + 1)}>Növel</button>
             <button onClick={() => setCount(count - 1)}>Csökkent</button>
-          </div>
+          </div>			
         );
       }
 
@@ -56,5 +81,10 @@
       const root = ReactDOM.createRoot(document.getElementById("root"));
       root.render(<App />);
     </script>
+  <br>
   </body>
+      <footer>
+        Created by Sinkár Dominik (J8IDDT) & Daczi Sándor (M1BTF5)
+    </footer>
+</body>
 </html>
